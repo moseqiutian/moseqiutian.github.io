@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>JavaScript内置对象</title>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		#big {
+			background-image: url(http://a3.qpic.cn/psb?/V11OOyBa27S1Km/uA.YwFZafqwXdueQIfhEBtCXFAN.Q8zlSyWkIsyX7hM!/b/dB8BAAAAAAAA&bo=rQOAAgAAAAAFBwg!&rf=viewer_4);
+			background-repeat: repeat-x;
+			background-size: 80%;
+			background-attachment: fixed;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			opacity: 0.5;
+		}
+
+		pre {
+			font-size: 16px;
+			font-weight: bolder;
+			font-family: "微软雅黑";
+		}
+
+		#box {
+			width: 1400px;
+			height: 100%;
+			margin: auto;
+			padding-top: 50px;
+		}
+
+		#dh {
+			width: 200px;
+			height: 80%;
+			background: rgba(225, 226, 230, 0.6);
+			position: fixed;
+			float: left;
+			margin-top: 40px;
+			font-size: 25px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+	</style>
+
+	<body>
+		<div id="big">
+		</div>
+		<div id="dh">
+			<a href="index.html">目录</a><br />
+			<a href="zxw.html" style="font-size: 18px;">一、工具使用</a><br />
+			<a href="gf.html" style="font-size: 18px;">二、WEB前端开发规范</a>
+			<a href="3.html" style="font-size: 18px;">三、JavaScript内置对象</a>
+			<a href="4.html" style="font-size: 18px;">四、JS内置对象(二)</a>
+		</div>
+		<div id="box">
+			<h1>Date（日期）对象、Math（算数）对象、RegExp(正则表达)对象</h1><br />
+			<h3>一、Date（日期）对象</h3><br />
+			<h4 style="text-indent: 2em;">1、Date 对象的声明</h4><br />
+			<h4 style="text-indent: 4em;">Date 对象用于处理日期和时间。</h4><br />
+			<h4 style="text-indent: 2em;">2、创建 Date 对象的语法：</h4><br />
+			<h4 style="text-indent: 4em;">var myDate=new Date()</h4><br />
+			<h4 style="text-indent: 2em;">3、Date 对象方法</h4><br />
+			<h4 style="text-indent: 4em;">a.Date()：方法可返回当天的日期和时间。 </h4><br />
+			<pre style="text-indent: 2em;">实例
+			document.write(Date())
+			</pre>
+			<pre style="text-indent: 2em;">结果
+
+      <script type="text/javascript">
+
+       document.write(Date())
+
+       </script>
+			</pre>
+			<h4 style="text-indent: 4em;">b.getDate() 方法可返回月份的某一天。 </h4><br />
+			<pre style="text-indent: 2em;">实例:显示当前月份
+
+             var d = new Date()
+             document.write(d.getDate()+1)
+			</pre>
+			<pre style="text-indent: 2em;">结果
+          <script type="text/javascript">
+
+	        var d = new Date()
+	        document.write(d.getDate() + 1)
+	        </script>
+			</pre>
+			<h4 style="text-indent: 4em;">c.getDay() 方法可返回表示星期的某一天的数字。返回值是 0（周日） 到 6（周六） 之间的一个整数。 </h4><br />
+			<pre style="text-indent: 2em;">实例:我们将以数字取得星期的当前一天
+
+			var d = new Date()
+			document.write(d.getDay())
+			</pre>
+			<pre style="text-indent: 2em;">结果
+			<script type="text/javascript">
+
+			var d = new Date()
+			document.write(d.getDay())
+			</script>
+			</pre>
+			<h4 style="text-indent: 4em;">d.getHours() 方法可返回时间的小时字段。返回值是 0 （午夜） 到 23 （晚上 11 点）之间的一个整数。 </h4><br />
+			<pre style="text-indent: 2em;">实例:我们将以数字取得星期的当前一天
+
+			var d = new Date()
+			document.write(d.getHours())
+			</pre>
+			<pre style="text-indent: 2em;">结果
+			<script type="text/javascript">
+
+			var d = new Date()
+			document.write(d.getHours())
+			</script>
+			</pre>
+			<h4 style="text-indent: 4em;">e.getMinutes() 方法可返回时间的分钟字段。返回值是 0 ~ 59 之间的一个整数。 </h4><br />
+			<pre style="text-indent: 2em;">实例:我们可取得当前时间的分钟：
+
+			var d = new Date()
+			document.write(d.getMinutes())
+			</pre>
+			<pre style="text-indent: 2em;">结果
+			<script type="text/javascript">
+
+			var d = new Date()
+			document.write(d.getMinutes())
+			</script>
+			</pre>
+			<h4 style="text-indent: 4em;">f.getMonth() 方法可返回表示月份的数字。返回值是 0（一月） 到 11（十二月） 之间的一个整数。 </h4><br />
+			<pre style="text-indent: 2em;">实例:我们将以数字取得星期的当前一天
+
+			var d = new Date()
+			document.write(d.getMonth())
+			</pre>
+			<pre style="text-indent: 2em;">结果
+			<script type="text/javascript">
+
+			var d = new Date()
+			document.write(d.getMonth())
+			</script>
+			</pre>
+			<h4 style="text-indent: 4em;">g.getSeconds() 方法可返回时间的秒。返回值是 0 ~ 59 之间的一个整数。 </h4><br />
+			<pre style="text-indent: 2em;">实例:我们可取得当前时间的秒：
+
+			var d = new Date()
+			document.write(d.getSeconds())
+			</pre>
+			<pre style="text-indent: 2em;">结果
+			<script type="text/javascript">
+
+			var d = new Date()
+			document.write(d.getSeconds())
+			</script>
+			</pre>
+			<h4 style="text-indent: 4em;">h.getTime() 方法可返回距 1970 年 1 月 1 日之间的毫秒数。指定的日期和时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数。 </h4><br />
+			<pre style="text-indent: 2em;">实例:我们将取得从 1970/01/01 至今的毫秒数，并输出它：
+
+			var d = new Date()
+			document.write(d.getTime() + " milliseconds since 1970/01/01")
+			</pre>
+			<pre style="text-indent: 2em;">结果
+			<script type="text/javascript">
+
+			var d = new Date()
+			document.write(d.getTime() + " milliseconds since 1970/01/01")
+			</script>
+			</pre>
+			<h4 style="text-indent: 4em;">i.getFullYear() 方法可返回一个表示年份的 4 位数字。返回值是一个四位数，表示包括世纪值在内的完整年份，而不是两位数的缩写形式。 </h4><br />
+			<pre style="text-indent: 2em;">实例:我们将取得当前的年份，并输出它：
+
+			var d = new Date()
+			document.write(d.getFullYear())
+			</pre>
+			<pre style="text-indent: 2em;">结果
+			<script type="text/javascript">
+
+			var d = new Date()
+			document.write(d.getFullYear())
+			</script>
+			</pre>
+			<h3>二、Math 对象</h3><br />
+			<h4 style="text-indent: 2em;">1、Math 对象声明</h4><br />
+			<h4 style="text-indent: 4em;">Math 对象用于执行数学任务。</h4><br />
+			<h4 style="text-indent: 2em;">2、创建Math 对象的语法：</h4><br />
+			<h4 style="text-indent: 4em;">var pi_value=Math.PI;</h4><br />
+			<h4 style="text-indent: 2em;">3、Date 对象方法</h4><br />
+			<h4 style="text-indent: 4em;">a.random() 方法可返回介于 0 ~ 1 之间的一个随机数。返回值为0.0 ~ 1.0 之间的一个伪随机数。</h4><br />
+			<pre style="text-indent: 2em;">实例:我们将取得介于 0 到 1 之间的一个随机数：
+
+			document.write(Math.random())
+			</pre>
+			<pre style="text-indent: 2em;">结果
+			<script type="text/javascript">
+
+			document.write(Math.random())
+			</script>
+			</pre>
+			<h4 style="text-indent: 4em;">b.JS的随机数函数及相关函数：</h4><br />
+			<h4 style="text-indent: 6em;">1.Math.random(); 结果为0-1间的一个随机数(包括0,不包括1) 。</h4><br />
+			<h4 style="text-indent: 6em;">2.Math.floor(num); 参数num为一个数值，函数结果为num的整数部分。 </h4><br />
+			<h4 style="text-indent: 6em;">3.Math.ceil(n); 返回大于等于n的最小整数。</h4><br />
+			<h4 style="text-indent: 6em;">4.Math.round(num); 参数num为一个数值，函数结果为num四舍五入后的整数。</h4><br />
+			<h4 style="text-indent: 4em;">c.可以用以上函数配合实现取x到y的随机数：</h4><br />
+			<h4 style="text-indent: 6em;">1.用Math.ceil(Math.random()*y);时，主要获取1到y的随机整数，取0的几率极小。</h4><br />
+			<h4 style="text-indent: 6em;">2.用Math.round(Math.random()*(y-1) + x)，可基本均衡获取x到y的随机整数，其中获取最小值x和最大值y的几率少一半。</h4><br />
+			<h4 style="text-indent: 6em;">3.用Math.floor(Math.random()*y + x);时，可均衡获取x到y的随机整数。</h4><br />
+			<h3>三、RegExp 对象</h3><br />
+			<h4 style="text-indent: 2em;">1、RegExp 对象声明</h4><br />
+			<h4 style="text-indent: 4em;">RegExp 是正则表达式的缩写。</h4><br />
+			<h4 style="text-indent: 2em;">2、创建Math 对象的语法跟方法：</h4><br />
+			<h4 style="text-indent: 4em;">直接百度弄个正则表吧骚年别看了我这没有</h4><br />
+		</div>
+	</body>
+
+</html>
