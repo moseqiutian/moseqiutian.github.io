@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		#big {
+			background-image: url(http://a3.qpic.cn/psb?/V11OOyBa27S1Km/uA.YwFZafqwXdueQIfhEBtCXFAN.Q8zlSyWkIsyX7hM!/b/dB8BAAAAAAAA&bo=rQOAAgAAAAAFBwg!&rf=viewer_4);
+			background-repeat: repeat-x;
+			background-size: 80%;
+			background-attachment: fixed;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			opacity: 0.5;
+		}
+
+		pre {
+			font-size: 16px;
+			font-weight: bolder;
+			font-family: "微软雅黑";
+		}
+
+		#box {
+			width: 1400px;
+			height: 100%;
+			margin: auto;
+			padding-top: 50px;
+		}
+
+		#dh {
+			width: 200px;
+			height: 80%;
+			background: rgba(225, 226, 230, 0.6);
+			position: fixed;
+			float: left;
+			margin-top: 40px;
+			font-size: 25px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+	</style>
+
+	<body>
+		<div id="big">
+		</div>
+		<div id="dh">
+			<a href="index.html">目录</a><br />
+			<a href="zxw.html" style="font-size: 18px;">一、工具使用</a><br />
+			<a href="gf.html" style="font-size: 18px;">二、WEB前端开发规范</a>
+			<a href="3.html" style="font-size: 18px;">三、JavaScript内置对象</a>
+			<a href="4.html" style="font-size: 18px;">四、JS内置对象(二)</a>
+      <a href="5.html" style="font-size: 18px;">五、冒泡流和捕获流</a>
+      <a href="6.html" style="font-size: 18px;">六、总结,万年历实例</a>
+      <a href="7.html" style="font-size: 18px;">七、画布</a>
+		</div>
+		<div id="box">
+			<h1>画布Canvas</h1><br />
+			<h3>一、颜色、样式和阴影</h3><br />
+			<h4 style="text-indent: 2em;">1.1、fillStyle</h4><br />
+			<pre style="text-indent: 4em;">定义用蓝色填充的矩形：<br />
+            var c=document.getElementById("canvas");
+            var ctx=c.getContext("2d");
+            ctx.fillStyle="#0000ff";
+            ctx.fillRect(20,20,150,100);</pre><br />
+     <h4 style="text-indent: 2em;">实例:
+     </h4><br />
+     <canvas id="canvas" width="" height=""></canvas>
+       <script type="text/javascript">
+       var c=document.getElementById("canvas");
+       var ctx=c.getContext("2d");
+       ctx.fillStyle="#0000ff";
+       ctx.fillRect(20,20,150,100);
+       </script>
+
+       <h4 style="text-indent: 2em;">1.2 定义从上到下的渐变，作为矩形的填充样式：</h4><br />
+       <pre style="text-indent: 4em;"><br />
+         var c=document.getElementById("myCanvas");
+         var ctx=c.getContext("2d");
+         var my_gradient=ctx.createLinearGradient(0,0,0,170);
+         my_gradient.addColorStop(0,"black");
+         my_gradient.addColorStop(1,"white");
+         ctx.fillStyle=my_gradient;
+         ctx.fillRect(20,20,150,100);</pre><br />
+       <h4 style="text-indent: 2em;">实例:
+       </h4><br />
+       <canvas id="myCanvas" width="" height=""></canvas>
+         <script type="text/javascript">
+         var c=document.getElementById("myCanvas");
+         var ctx=c.getContext("2d");
+         var my_gradient=ctx.createLinearGradient(0,0,0,170);
+         my_gradient.addColorStop(0,"black");
+         my_gradient.addColorStop(1,"white");
+         ctx.fillStyle=my_gradient;
+         ctx.fillRect(20,20,150,100);
+         </script>
+
+         <h4 style="text-indent: 2em;">1.3 定义从左到右的渐变，作为矩形的填充样式：</h4><br />
+         <pre style="text-indent: 4em;"><br />
+           var c=document.getElementById("myCanvas");
+           var ctx=c.getContext("2d");
+           var my_gradient=ctx.createLinearGradient(0,0,170,0);
+           my_gradient.addColorStop(0,"black");
+           my_gradient.addColorStop(1,"white");
+           ctx.fillStyle=my_gradient;
+           ctx.fillRect(20,20,150,100);</pre><br />
+         <h4 style="text-indent: 2em;">实例:
+         </h4><br />
+         <canvas id="myCanvas1" width="" height=""></canvas>
+           <script type="text/javascript">
+           var c=document.getElementById("myCanvas1");
+           var ctx=c.getContext("2d");
+           var my_gradient=ctx.createLinearGradient(0,0,170,0);
+           my_gradient.addColorStop(0,"black");
+           my_gradient.addColorStop(1,"white");
+           ctx.fillStyle=my_gradient;
+           ctx.fillRect(20,20,150,100);
+           </script>
+
+           <h4 style="text-indent: 2em;">1.4 定义从黑到红到白的的渐变，作为矩形的填充样式：</h4><br />
+           <pre style="text-indent: 4em;"><br />
+             var c=document.getElementById("myCanvas");
+             var ctx=c.getContext("2d");
+             var my_gradient=ctx.createLinearGradient(0,0,170,0);
+             my_gradient.addColorStop(0,"black");
+             my_gradient.addColorStop(0.5,"red");
+             my_gradient.addColorStop(1,"white");
+             ctx.fillStyle=my_gradient;
+             ctx.fillRect(20,20,150,100);</pre><br />
+           <h4 style="text-indent: 2em;">实例:
+           </h4><br />
+           <canvas id="myCanvas2" width="" height=""></canvas>
+             <script type="text/javascript">
+             var c=document.getElementById("myCanvas2");
+             var ctx=c.getContext("2d");
+             var my_gradient=ctx.createLinearGradient(0,0,170,0);
+             my_gradient.addColorStop(0,"black");
+             my_gradient.addColorStop(0.5,"red");
+             my_gradient.addColorStop(1,"white");
+             ctx.fillStyle=my_gradient;
+             ctx.fillRect(20,20,150,100);
+             </script>
+
+             <h3>二、矩形</h3><br />
+             <h4 style="text-indent: 2em;">1 rect() 方法</h4><br />
+             <pre style="text-indent: 4em;">1.1 绘制 150*100 像素的矩形：<br />
+               var c=document.getElementById("myCanvas");
+               var ctx=c.getContext("2d");
+               ctx.rect(20,20,150,100);
+               ctx.stroke();</pre><br />
+             <h4 style="text-indent: 2em;">实例:
+             </h4><br />
+             <canvas id="myCanvas3" width="" height=""></canvas>
+               <script type="text/javascript">
+               var c=document.getElementById("myCanvas3");
+               var ctx=c.getContext("2d");
+               ctx.rect(20,20,150,100);
+               ctx.stroke();
+               </script>
+
+               <h4 style="text-indent: 2em;">1.2 绘制 150*100 像素的已填充矩形：</h4><br />
+               <pre style="text-indent: 4em;"><br />
+                 var c=document.getElementById("myCanvas");
+                 var ctx=c.getContext("2d");
+                 ctx.fillRect(20,20,150,100);</pre><br />
+               <h4 style="text-indent: 2em;">实例:
+               </h4><br />
+               <canvas id="myCanvas4" width="" height=""></canvas>
+                 <script type="text/javascript">
+                 var c=document.getElementById("myCanvas4");
+                 var ctx=c.getContext("2d");
+                 ctx.fillRect(20,20,150,100);
+                 </script>
+
+                 <h3>二、路径</h3><br />
+                 <h4 style="text-indent: 2em;">1 fill() 方法</h4><br />
+                 <pre style="text-indent: 4em;">1.1 绘制 150*100 像素的矩形，然后用绿色来给它填色：<br />
+                   var c=document.getElementById("myCanvas");
+                   var ctx=c.getContext("2d");
+                   ctx.rect(20,20,150,100);
+                   ctx.fillStyle="green";
+                   ctx.fill();</pre><br />
+                 <h4 style="text-indent: 2em;">实例:
+                 </h4><br />
+                 <canvas id="myCanvas5" width="" height=""></canvas>
+                   <script type="text/javascript">
+                   var c=document.getElementById("myCanvas5");
+                   var ctx=c.getContext("2d");
+                   ctx.rect(20,20,150,100);
+                   ctx.fillStyle="green";
+                   ctx.fill();
+                   </script>
+
+                   <h4 style="text-indent: 2em;">2 beginPath() 方法</h4><br />
+                   <pre style="text-indent: 4em;">2.1 在画布上绘制两条路径；红色和蓝色：<br />
+                     var c=document.getElementById("myCanvas");
+                     var ctx=c.getContext("2d");
+
+                     ctx.beginPath();
+                     ctx.lineWidth="5";
+                     ctx.strokeStyle="red"; // 红色路径
+                     ctx.moveTo(0,75);
+                     ctx.lineTo(250,75);
+                     ctx.stroke(); // 进行绘制
+
+                     ctx.beginPath();
+                     ctx.strokeStyle="blue"; // 蓝色路径
+                     ctx.moveTo(50,0);
+                     ctx.lineTo(150,130);
+                     ctx.stroke(); // 进行绘制</pre><br />
+                   <h4 style="text-indent: 2em;">实例:
+                   </h4><br />
+                   <canvas id="myCanvas6" width="" height=""></canvas>
+                     <script type="text/javascript">
+                     var c=document.getElementById("myCanvas6");
+                     var ctx=c.getContext("2d");
+
+                     ctx.beginPath();
+                     ctx.lineWidth="5";
+                     ctx.strokeStyle="red"; // 红色路径
+                     ctx.moveTo(0,75);
+                     ctx.lineTo(250,75);
+                     ctx.stroke(); // 进行绘制
+
+                     ctx.beginPath();
+                     ctx.strokeStyle="blue"; // 蓝色路径
+                     ctx.moveTo(50,0);
+                     ctx.lineTo(150,130);
+                     ctx.stroke(); // 进行绘制
+                     </script>
+
+                     <h4 style="text-indent: 2em;">3 moveTo() 方法</h4><br />
+                     <pre style="text-indent: 4em;">3.1 开始一条路径，移动到位置 0,0。创建到达位置 300,150 的一条线：<br />
+                       var c=document.getElementById("myCanvas");
+                       var ctx=c.getContext("2d");
+                       ctx.beginPath();
+                       ctx.moveTo(0,0);
+                       ctx.lineTo(300,150);
+                       ctx.stroke();</pre><br />
+                     <h4 style="text-indent: 2em;">实例:
+                     </h4><br />
+                     <canvas id="myCanvas7" width="" height=""></canvas>
+                       <script type="text/javascript">
+                       var c=document.getElementById("myCanvas7");
+                       var ctx=c.getContext("2d");
+                       ctx.beginPath();
+                       ctx.moveTo(0,0);
+                       ctx.lineTo(300,150);
+                       ctx.stroke();
+                       </script>
+
+                       <h4 style="text-indent: 2em;">4 closePath() 方法</h4><br />
+                       <pre style="text-indent: 4em;">4.1 绘制一条路径，形式是字母 L，然后绘制线条以返回开始点：<br />
+                         var c=document.getElementById("myCanvas");
+                         var ctx=c.getContext("2d");
+                         ctx.beginPath();
+                         ctx.moveTo(20,20);
+                         ctx.lineTo(20,100);
+                         ctx.lineTo(70,100);
+                         ctx.closePath();
+                         ctx.stroke();</pre><br />
+                       <h4 style="text-indent: 2em;">实例:
+                       </h4><br />
+                       <canvas id="myCanvas8" width="" height=""></canvas>
+                         <script type="text/javascript">
+                         var c=document.getElementById("myCanvas8");
+                         var ctx=c.getContext("2d");
+                         ctx.beginPath();
+                         ctx.moveTo(20,20);
+                         ctx.lineTo(20,100);
+                         ctx.lineTo(70,100);
+                         ctx.closePath();
+                         ctx.stroke();
+                         </script>
+
+                         <h4 style="text-indent: 2em;">5 quadraticCurveTo() 方法</h4><br />
+                         <pre style="text-indent: 4em;">5.1 绘制一条二次贝塞尔曲线：<br />
+                           var c=document.getElementById("myCanvas");
+                           var ctx=c.getContext("2d");
+                           ctx.beginPath();
+                           ctx.moveTo(20,20);
+                           ctx.quadraticCurveTo(20,100,200,20);
+                           ctx.stroke();</pre><br />
+                         <h4 style="text-indent: 2em;">实例:
+                         </h4><br />
+                         <canvas id="myCanvas9" width="" height=""></canvas>
+                           <script type="text/javascript">
+                           var c=document.getElementById("myCanvas9");
+                           var ctx=c.getContext("2d");
+                           ctx.beginPath();
+                           ctx.moveTo(20,20);
+                           ctx.quadraticCurveTo(20,100,200,20);
+                           ctx.stroke();
+                           </script>
+                           <h4 style="text-indent: 2em;">定义跟用法</h4><br />
+                           <img src="http://a1.qpic.cn/psb?/V11OOyBa27S1Km/RgzhyQVdhhH0xX*b0OLJiofXnfEtV0Zfk96OruqFqf4!/b/dHoBAAAAAAAA&bo=QAOAAgAAAAADB.M!&rf=viewer_4" alt="" />
+
+                           <h4 style="text-indent: 2em;">6 bezierCurveTo() 方法</h4><br />
+                           <pre style="text-indent: 4em;">6.1 绘制一条三次贝塞尔曲线：<br />
+                             var c=document.getElementById("myCanvas");
+                             var ctx=c.getContext("2d");
+                             ctx.beginPath();
+                             ctx.moveTo(20,20);
+                             ctx.bezierCurveTo(20,100,200,100,200,20);
+                             ctx.stroke();</pre><br />
+                           <h4 style="text-indent: 2em;">实例:
+                           </h4><br />
+                           <canvas id="myCanvas10" width="" height=""></canvas>
+                             <script type="text/javascript">
+                             var c=document.getElementById("myCanvas10");
+                             var ctx=c.getContext("2d");
+                             ctx.beginPath();
+                             ctx.moveTo(20,20);
+                             ctx.bezierCurveTo(20,100,200,100,200,20);
+                             ctx.stroke();
+                             </script>
+                             <h4 style="text-indent: 2em;">定义跟用法</h4><br />
+                             <img src="http://a2.qpic.cn/psb?/V11OOyBa27S1Km/GbP2pK1MUn15xxAScYJHwrwSkmhz0Ice0mOHlk.6NqI!/b/dNwAAAAAAAAA&bo=mwKAAgAAAAADBzk!&rf=viewer_4" alt="" />
+    </div>
+	</body>
+
+</html>
