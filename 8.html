@@ -1,0 +1,447 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		#big {
+			background-image: url(http://a3.qpic.cn/psb?/V11OOyBa27S1Km/uA.YwFZafqwXdueQIfhEBtCXFAN.Q8zlSyWkIsyX7hM!/b/dB8BAAAAAAAA&bo=rQOAAgAAAAAFBwg!&rf=viewer_4);
+			background-repeat: repeat-x;
+			background-size: 80%;
+			background-attachment: fixed;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			opacity: 0.5;
+		}
+
+		pre {
+			font-size: 16px;
+			font-weight: bolder;
+			font-family: "微软雅黑";
+		}
+
+		#box {
+			width: 1100px;
+			height: 100%;
+			margin: auto;
+			padding-top: 50px;
+		}
+
+		#dh {
+			width: 200px;
+			height: 80%;
+			background: rgba(225, 226, 230, 0.6);
+			position: fixed;
+			float: left;
+			margin-top: 40px;
+			font-size: 25px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+    .wrapper{height:800px;}
+    canvas{
+      display: block;
+      margin: auto;
+      margin-top: 20px;
+    }
+	</style>
+
+	<body>
+		<div id="big">
+		</div>
+		<div id="dh">
+			<a href="index.html">目录</a><br />
+			<a href="zxw.html" style="font-size: 18px;">一、工具使用</a><br />
+			<a href="gf.html" style="font-size: 18px;">二、WEB前端开发规范</a>
+			<a href="3.html" style="font-size: 18px;">三、JavaScript内置对象</a>
+			<a href="4.html" style="font-size: 18px;">四、JS内置对象(二)</a>
+      <a href="5.html" style="font-size: 18px;">五、冒泡流和捕获流</a>
+      <a href="6.html" style="font-size: 18px;">六、总结,万年历实例</a>
+      <a href="7.html" style="font-size: 18px;">七、画布</a><br>
+      <a href="8.html" style="font-size: 18px;">八、画布img旋转,SVG </a>
+		</div>
+		<div id="box">
+			<h1>画布img旋转,SVG,爱心猫</h1><br />
+			<h3>一、drawImage() 方法</h3><br />
+			<h4 style="text-indent: 2em;">1.1、定义跟用法</h4><br />
+      <h4 style="text-indent: 4em;">drawImage() 方法在画布上绘制图像、画布或视频。</h4><br />
+      <h4 style="text-indent: 4em;">drawImage() 方法也能够绘制图像的某些部分，以及/或者增加或减少图像的尺寸。</h4><br />
+      <h4 style="text-indent: 2em;">1.2、JavaScript 语法 1</h4><br />
+      <h4 style="text-indent: 4em;">在画布上定位图像：</h4><br />
+      <h4 style="text-indent: 4em;">context.drawImage(img,x,y);</h4><br />
+      <h4 style="text-indent: 2em;">1.3、JavaScript 语法 2</h4><br />
+      <h4 style="text-indent: 4em;">在画布上定位图像，并规定图像的宽度和高度：</h4><br />
+      <h4 style="text-indent: 4em;">context.drawImage(img,x,y,width,height);</h4><br />
+      <h4 style="text-indent: 2em;">1.4、JavaScript 语法 3</h4><br />
+      <h4 style="text-indent: 4em;">剪切图像，并在画布上定位被剪切的部分：</h4><br />
+      <h4 style="text-indent: 4em;">context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);</h4><br />
+      <h4 style="text-indent: 2em;">所用参数:</h4><br />
+      <img src="http://a3.qpic.cn/psb?/V11OOyBa27S1Km/Rq.77sFZ7ctFG9KWiHyaDTPNLnuH0Ak0sLiHo2Uj9wA!/b/dB8BAAAAAAAA&bo=EQNxAQAAAAADB0A!&rf=viewer_4" alt="" /><br/>
+			<pre style="text-indent: 2em;">画布图片旋转JS部分:<br />
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        var img=new Image();
+        img.src="http://a2.qpic.cn/psb?/V11OOyBa27S1Km/4hLyLTAB1IFkvhprFZY3hxaQeQiJxmhrEETIj8KMRFo!/b/dLIAAAAAAAAA&bo=qgCqAAAAAAADByI!&rf=viewer_4"
+        img.onload=function(){
+          ctx.drawImage(img,0,0,200,200);
+        };
+
+        var left = document.getElementById('left');
+        left.onclick=function () {
+          var x = c.width/2; //画布宽度的一半
+          var y = c.height/2;//画布高度的一半
+           ctx.clearRect(0,0, c.width, c.height);  //清除画布内的东西
+           ctx.translate(x,y);     //获得圆心点为中心点
+           ctx.rotate(-90*Math.PI/180);   //旋转90°
+           ctx.translate(-x,-y);       //更改圆心点回0,0
+           ctx.drawImage(img,0,0,200,200);   //绘画出图片
+        }
+
+        var right = document.getElementById('right');
+        right.onclick=function () {
+          var x = c.width/2; //画布宽度的一半
+          var y = c.height/2;//画布高度的一半
+           ctx.clearRect(0,0, c.width, c.height);
+           ctx.translate(x,y);
+           ctx.rotate(90*Math.PI/180);
+           ctx.translate(-x,-y);
+           ctx.drawImage(img,0,0,200,200);
+        }</pre><br />
+
+        <pre style="text-indent: 4em;">body部分代码<br />
+          canvas id="myCanvas" width="200" height="200" style="border:1px solid #d3d3d3;">
+          /canvas>
+          input type="button" id="left" value="左">
+          input type="button" id="right" value="右"></pre><br />
+     <h4 style="text-indent: 2em;">实例:
+     </h4><br /><br />
+     <canvas id="myCanvas1" width="200" height="200" style="border:1px solid #d3d3d3;">
+     </canvas>
+     <input type="button" id="left" value="左">
+     <input type="button" id="right" value="右">
+     <script>
+     var c=document.getElementById("myCanvas1");
+     var ctx=c.getContext("2d");
+     var img=new Image();
+     img.src="http://a2.qpic.cn/psb?/V11OOyBa27S1Km/4hLyLTAB1IFkvhprFZY3hxaQeQiJxmhrEETIj8KMRFo!/b/dLIAAAAAAAAA&bo=qgCqAAAAAAADByI!&rf=viewer_4"
+     img.onload=function(){
+       ctx.drawImage(img,0,0,200,200);
+     };
+
+     var left = document.getElementById('left');
+     left.onclick=function () {
+       var x = c.width/2; //画布宽度的一半
+       var y = c.height/2;//画布高度的一半
+        ctx.clearRect(0,0, c.width, c.height);  //清除画布内的东西
+        ctx.translate(x,y);     //获得圆心点为中心点
+        ctx.rotate(-90*Math.PI/180);   //旋转90°
+        ctx.translate(-x,-y);       //更改圆心点回0,0
+        ctx.drawImage(img,0,0,200,200);   //绘画出图片
+     }
+
+     var right = document.getElementById('right');
+     right.onclick=function () {
+       var x = c.width/2; //画布宽度的一半
+       var y = c.height/2;//画布高度的一半
+        ctx.clearRect(0,0, c.width, c.height);
+        ctx.translate(x,y);
+        ctx.rotate(90*Math.PI/180);
+        ctx.translate(-x,-y);
+        ctx.drawImage(img,0,0,200,200);
+     }
+     </script>
+
+     <h3>二,爱心猫</h3><br />
+     <h4 style="text-indent: 2em;">爱心猫body部分代码</h4><br />
+      <pre style="text-indent: 4em;">      div class="wrapper">
+                canvas width=600 height=554 id="canvas">/canvas>
+               div>
+             </pre><br />
+      <h4 style="text-indent: 2em;">爱心猫JS代码</h4><br />
+      <pre>
+        var canvas=document.getElementById('canvas');
+        if(canvas.getContext("2d")){
+            var ctx=canvas.getContext("2d");
+    //        尾巴
+            ctx.strokeStyle="black";
+            ctx.fillStyle="#ffffd9";
+            ctx.lineWidth=6;
+            ctx.beginPath();
+            ctx.moveTo(433,458);
+            ctx.lineTo(477,438);
+            ctx.bezierCurveTo(492,433,496,453,484,463);
+            ctx.lineTo(433,494);
+            ctx.fill();
+            ctx.stroke();
+    //身体
+            ctx.beginPath();
+            ctx.moveTo(255,392);
+            ctx.lineTo(255,526);
+            ctx.bezierCurveTo(256,555,282,557,293,530);
+            ctx.lineTo(383,530);
+            ctx.bezierCurveTo(392,557,419,558,428,526);
+            ctx.quadraticCurveTo(434,523,430,393);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+    //        左边耳朵
+            ctx.strokeStyle="#33190c";
+            ctx.fillStyle="#ffffd9";
+            ctx.lineWidth=4;
+            ctx.beginPath();
+            ctx.moveTo(106,79);
+            ctx.quadraticCurveTo(90,10,209,14);
+            ctx.fill();
+            ctx.stroke();
+    //        右边耳朵
+            ctx.beginPath();
+            ctx.lineWidth=5;
+            ctx.moveTo(376,14);
+            ctx.quadraticCurveTo(431,13,446,15);
+            ctx.quadraticCurveTo(488,20,498,48);
+            ctx.quadraticCurveTo(508,75,512,110);
+            ctx.fill();
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.lineWidth=8;
+            ctx.moveTo(470,65);
+            ctx.lineTo(483,27);
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.fillStyle="#fecce5";
+            ctx.moveTo(473,65);
+            ctx.lineTo(483,30);
+            ctx.bezierCurveTo(502,46,496,60,512,110);
+            ctx.closePath();
+            ctx.fill();
+
+
+            //头
+            ctx.lineWidth=10;
+           ctx.beginPath();
+            ctx.strokeStyle="#33190c";
+            ctx.fillStyle="#ffffd9";
+            ctx.moveTo(280,6);
+            ctx.bezierCurveTo(476,0,535,154,541,166);
+            ctx.lineTo(546,180);
+            ctx.bezierCurveTo(584,304,530,368,432,392);
+            ctx.quadraticCurveTo(210,460,90,372);
+            ctx.quadraticCurveTo(38,324,34,314);
+            ctx.quadraticCurveTo(1,268,38,174);
+            ctx.quadraticCurveTo(128,8,280,6);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+            //胡须(左边)
+            ctx.strokeStyle="#33190c";
+            ctx.lineWidth=7;
+            ctx.beginPath();
+            ctx.moveTo(6,212);
+            ctx.lineTo(23,212);
+            ctx.stroke();
+            ctx.moveTo(7,211);
+            ctx.quadraticCurveTo(5,212,7,213);
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.moveTo(2,246);
+            ctx.lineTo(15,246);
+            ctx.stroke();
+            ctx.moveTo(6,245);
+            ctx.quadraticCurveTo(1,246,6,247);
+            ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.moveTo(6,284);
+            ctx.lineTo(17,281);
+            ctx.stroke();
+            ctx.moveTo(9,282);
+            ctx.quadraticCurveTo(4,287,6,282);
+            ctx.stroke();
+            //胡须(右边边)
+            ctx.lineWidth=6;
+            ctx.beginPath();
+            ctx.moveTo(529,233);
+            ctx.lineTo(596,246);
+            ctx.stroke();
+            ctx.moveTo(530,233);
+            ctx.quadraticCurveTo(528,233,530,234);
+           ctx.stroke();
+            ctx.moveTo(596,246);
+            ctx.quadraticCurveTo(597,246,596,246);
+           ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.moveTo(525,263);
+            ctx.lineTo(587,290);
+            ctx.stroke();
+            ctx.moveTo(526,263);
+            ctx.quadraticCurveTo(524,263,527,264);
+            ctx.stroke();
+            ctx.moveTo(587,290);
+            ctx.quadraticCurveTo(589,291,587,290);
+           ctx.stroke();
+
+
+            ctx.beginPath();
+            ctx.moveTo(523,296);
+            ctx.lineTo(581,331);
+            ctx.stroke();
+            ctx.moveTo(524,298);
+            ctx.quadraticCurveTo(522,294,524,297);
+            ctx.stroke();
+            ctx.moveTo(581,331);
+            ctx.quadraticCurveTo(583,332,581,331);
+            ctx.stroke();
+
+
+            //眉毛(左边)
+            ctx.lineWidth=5;
+            ctx.beginPath();
+            ctx.moveTo(163,40);
+            ctx.lineTo(182,42);
+            ctx.moveTo(182,42);
+            ctx.quadraticCurveTo(185,42,180,42);
+            ctx.stroke();
+            //眉毛(右边)
+            ctx.beginPath();
+            ctx.moveTo(374,54);
+            ctx.quadraticCurveTo(386,43,396,57);
+            ctx.moveTo(375,54);
+            ctx.quadraticCurveTo(372,56,376,53);
+            ctx.moveTo(395,56);
+            ctx.quadraticCurveTo(397,58,395,56);
+            ctx.stroke();
+            //眼睛(左边)
+            ctx.fillStyle="#35190d";
+            ctx.beginPath();
+            ctx.moveTo(129,140);
+            ctx.bezierCurveTo(206,118,215,204,172,226);
+            ctx.bezierCurveTo(92,249,85,165,129,140);
+            ctx.closePath();
+            ctx.fill();
+            //眼睛(右边)
+            ctx.beginPath();
+            ctx.moveTo(332,154);
+            ctx.bezierCurveTo(421,108,462,208,407,240);
+            ctx.bezierCurveTo(357,279,264,214,332,154);
+            ctx.closePath();
+            ctx.fill();
+            //睫毛(左边)
+            ctx.strokeStyle="#35190d";
+            ctx.lineWidth=6;
+            ctx.beginPath();
+            ctx.moveTo(129,146);
+            ctx.lineTo(129,131);
+            ctx.stroke();
+            //睫毛(右边)
+            ctx.beginPath();
+            ctx.moveTo(334,156);
+            ctx.lineTo(328,146);
+            ctx.stroke();
+
+
+            //眼珠(左边)
+            ctx.fillStyle="#fff";
+            ctx.beginPath();
+            ctx.moveTo(177,151);
+            ctx.bezierCurveTo(190,152,183,166,177,164);
+            ctx.bezierCurveTo(168,164,168,152,177,151);
+            ctx.closePath();
+            ctx.fill();
+            //眼珠(右边)
+            ctx.beginPath();
+            ctx.moveTo(393,154);
+            ctx.bezierCurveTo(406,155,402,171,393,169);
+            ctx.bezierCurveTo(384,169,382,155,393,154);
+            ctx.closePath();
+            ctx.fill();
+
+
+            //鼻子
+            ctx.fillStyle="#35190e";
+            ctx.beginPath();
+            ctx.moveTo(237,220);
+            ctx.bezierCurveTo(237,209,254,209,254,220);
+            ctx.bezierCurveTo(254,231,238,231,237,220);
+            ctx.closePath();
+            ctx.fill();
+
+
+            ctx.strokeStyle="#35190e";
+            ctx.lineWidth=4;
+            ctx.beginPath();
+            ctx.moveTo(218,229);
+            ctx.bezierCurveTo(222,241,239,243,245,226);
+            ctx.moveTo(219,230);
+            ctx.bezierCurveTo(217,228,218,228,219,230);
+            ctx.moveTo(245,226);
+            ctx.bezierCurveTo(254,245,279,244,285,234);
+            ctx.moveTo(285,234);
+            ctx.bezierCurveTo(286,232,287,232,285,234);
+            ctx.stroke();
+            //爱心
+            ctx.strokeStyle="#33190c";
+            ctx.fillStyle="#fe0000";
+            ctx.lineWidth=10;
+            ctx.beginPath();
+            ctx.moveTo(98,376);
+            ctx.bezierCurveTo(70,301,156,194,246,303);
+            ctx.bezierCurveTo(403,197,476,345,424,402);
+            ctx.quadraticCurveTo(375,475,260,528);
+            ctx.quadraticCurveTo(247,536,225,526);
+            ctx.quadraticCurveTo(130,463,98,376);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+
+
+            //手(左边)
+            ctx.strokeStyle="#33190c";
+            ctx.fillStyle="#fff";
+            ctx.lineWidth=6;
+            ctx.beginPath();
+            ctx.moveTo(98,377);
+            ctx.bezierCurveTo(137,367,128,417,113,415);
+            ctx.bezierCurveTo(97,418,74,390,98,377);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            //手(右边)
+            ctx.beginPath();
+            ctx.moveTo(390,434);
+            ctx.bezierCurveTo(358,407,392,366,427,388);
+            ctx.quadraticCurveTo(416,409,393,435);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+
+        }
+      </pre>
+      <h4 style="text-indent: 2em;">实例:
+      </h4><br /><br />
+      <img src="http://a1.qpic.cn/psb?/V11OOyBa27S1Km/uXBdjqCvwjdCLUMLSW0gbqrO1R*wKcTOe3nlHLbmhqU!/b/dCABAAAAAAAA&bo=6QJhAgAAAAADB6o!&rf=viewer_4" alt="" />
+    </div>
+	</body>
+
+</html>
