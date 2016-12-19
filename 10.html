@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+		
+		#big {
+			background-image: url(http://a3.qpic.cn/psb?/V11OOyBa27S1Km/uA.YwFZafqwXdueQIfhEBtCXFAN.Q8zlSyWkIsyX7hM!/b/dB8BAAAAAAAA&bo=rQOAAgAAAAAFBwg!&rf=viewer_4);
+			background-repeat: repeat-x;
+			background-size: 80%;
+			background-attachment: fixed;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			opacity: 0.5;
+		}
+		
+		pre {
+			font-size: 16px;
+			font-weight: bolder;
+			font-family: "微软雅黑";
+		}
+		
+		#box {
+			width: 1400px;
+			height: 100%;
+			margin: auto;
+			padding-top: 50px;
+		}
+		
+		#dh {
+			width: 200px;
+			height: 80%;
+			background: rgba(225, 226, 230, 0.6);
+			position: fixed;
+			float: left;
+			margin-top: 40px;
+			font-size: 25px;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+	</style>
+
+	<body>
+		<div id="big">
+		</div>
+		<div id="dh">
+			<a href="index.html">目录</a><br />
+			<a href="zxw.html" style="font-size: 18px;">一、工具使用</a><br />
+			<a href="gf.html" style="font-size: 18px;">二、WEB前端开发规范</a><br />
+			<a href="3.html" style="font-size: 18px;">三、JavaScript内置对象</a><br />
+			<a href="4.html" style="font-size: 18px;">四、JS内置对象(二)</a><br />
+			<a href="5.html" style="font-size: 18px;">五、冒泡流和捕获流</a><br />
+			<a href="6.html" style="font-size: 18px;">六、总结,万年历实例</a><br />
+			<a href="7.html" style="font-size: 18px;">七、画布</a><br />
+			<a href="8.html" style="font-size: 18px;">八、画布img旋转,爱心猫 </a><br />
+			<a href="9.html" style="font-size: 18px;">九、12.16分页总结 </a><br />
+			<a href="10.html" style="font-size: 18px;">十、this指向案例与视频插入 </a><br />
+		</div>
+		<div id="box">
+			<h1>this指向案例</h1><br />
+			<h3>一、zhis案例1</h3><br />
+			<h4 style="text-indent: 2em;">1.1、函数直接在全局调用,this指向window</h4><br />
+			<h4 style="text-indent: 2em;">实例:</h4><br />
+			<img src="http://a1.qpic.cn/psb?/V11OOyBa27S1Km/uBcXO1lBDj*vEGDV7onPR4et5hsVzz38UuSwntvgjmY!/b/dN4AAAAAAAAA&bo=JQK9AAAAAAADB7g!&rf=viewer_4"/>
+			<h4 style="text-indent: 2em;">1.2 对象,this指向对象：</h4><br />
+			<h4 style="text-indent: 2em;">实例:
+           </h4><br />
+           	<img src="http://a2.qpic.cn/psb?/V11OOyBa27S1Km/1ZE8F6UK*QMJ*I4q9Lx7YXrIOgM3BadzyEchmM1Xk5g!/b/dHgBAAAAAAAA&bo=nQIuAQAAAAADAJU!&rf=viewer_4"/>
+
+			<h4 style="text-indent: 2em;">1.3 函数返回指向：</h4><br />
+			<h4 style="text-indent: 2em;">实例:
+            </h4><br />
+            <img src="http://a3.qpic.cn/psb?/V11OOyBa27S1Km/LLRN9UTQyx4Suq58elEoI2FrBgZNf2xN8dcjnU8pH4U!/b/dN0AAAAAAAAA&bo=twJvAQAAAAADAP4!&rf=viewer_4"/>
+
+			<h4 style="text-indent: 2em;">1.4 如果第一个参数为空内部this转向window：</h4><br />
+			<h4 style="text-indent: 2em;">实例:
+            </h4><br />
+            <img src="http://a3.qpic.cn/psb?/V11OOyBa27S1Km/iDFJsyIaHd8OyU.3TiC8wk4ztATrvWLCV.V.qhHajns!/b/dAoBAAAAAAAA&bo=ZwIjAQAAAAADAGI!&rf=viewer_4"/>
+            
+            <h3>二、zhis案例小测试</h3><br />
+			<h4 style="text-indent: 2em;">1.1 this的指向问题 </h4><br />
+			<h4 style="text-indent: 2em;">实例:
+            </h4><br />
+            <img src="http://a3.qpic.cn/psb?/V11OOyBa27S1Km/Vf2PAdTEIzlyAbe8.W88kazFYyp9TebU0QfAIKLIJtc!/b/dHkBAAAAAAAA&bo=DAIbAQAAAAADADE!&rf=viewer_4"/>
+            <h4 style="text-indent: 2em;">指向window </h4><br />
+            
+            
+			<h4 style="text-indent: 2em;">1.2 this的指向问题2</h4><br />
+			<h4 style="text-indent: 2em;">实例:
+            </h4><br />
+             <img src="http://a2.qpic.cn/psb?/V11OOyBa27S1Km/KGvx9x5Io*65K0F8*HfNzEhty3E6Xa1wGUS1e117Sjk!/b/dNwAAAAAAAAA&bo=MgJwAQAAAAADAGQ!&rf=viewer_4"/>
+
+			<h3>二、视频插入</h3><br />
+			<h4 style="text-indent: 2em;">1 视频插入用JS制作功能</h4><br />
+			<h4 style="text-indent: 2em;">1.1 body部分</h4><br />
+			<img src="http://a2.qpic.cn/psb?/V11OOyBa27S1Km/lvDzIeE.AtGix65DryeRQsIdjSxpKd7mK46cMheCL10!/b/dKYAAAAAAAAA&bo=eQMtAQAAAAADB3Q!&rf=viewer_4"/>
+			<h4 style="text-indent: 2em;">1.2 JavaScript进度条点击跟拖动效果部分</h4><br />
+			<img src="http://a1.qpic.cn/psb?/V11OOyBa27S1Km/YInFxqVuZSm0L6oxf6JF2tlDS3auJpJA.sVh5*fcq*A!/b/dN4AAAAAAAAA&bo=5gOAAgAAAAADB0U!&rf=viewer_4"/>
+			<h4 style="text-indent: 2em;">1.3 JavaScript进度条时间跟开始暂停部分</h4><br />
+			<img src="http://a2.qpic.cn/psb?/V11OOyBa27S1Km/zu7RNd89m7DhnOA.kK88TWgeNE7qQm50kl.SlbwWOOs!/b/dG8BAAAAAAAA&bo=dAP1AQAAAAADAKY!&rf=viewer_4"/>
+			<h4 style="text-indent: 2em;">实例:
+           </h4><br />
+
+
+		</div>
+	</body>
+
+</html>
