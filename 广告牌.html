@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        #container{
+            width: 400px;
+            margin:auto;
+          overflow: hidden;
+       
+            border:1px dotted #ccc;
+        }
+        #in{
+            float: left;
+            width:800%;
+        }
+        #container1,#container2{
+            float: left;
+           
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="in">
+        <div id="container1">
+        <span>欢迎来到SAO,我是新人指导路人甲!</span>
+		<span>欢迎来到SAO,我是新人指导路人甲!</span>
+        <span>欢迎来到SAO,我是新人指导路人甲!</span>
+		<span>欢迎来到SAO,我是新人指导路人甲!</span>
+        <span>欢迎来到SAO,我是新人指导路人甲!</span>
+		<span>欢迎来到SAO,我是新人指导路人甲!</span>		
+        </div>
+        <div id="container2">
+        </div>
+    </div>
+</div>
+
+<script>
+    var container = document.getElementById("container");
+    var container1 = document.getElementById("container1");
+    var container2 = document.getElementById("container2");
+    container2.innerHTML = container1.innerHTML;
+    function scroll(){
+        if(container2.offsetWidth - container.scrollLeft <= 0){
+            container.scrollLeft -= container2.offsetWidth;
+        }else{
+            container.scrollLeft ++;
+        }
+    }
+    var scrolltime = window.setInterval(scroll,20);
+</script>
+</body>
+</html>
