@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Keywords" content="关键字">
+		<meta name="Description" content="描述">
+		<title>瀑布流</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.wrap {
+				width: 1050px;
+				height: 300px;
+				margin: 20px auto;
+			}
+			
+			.wrap ul li {
+				list-style: none;
+				float: left;
+				width: 250px;
+				margin-right: 10px;
+			}
+			
+			.wrap ul li div {
+				padding: 5px;
+				box-shadow: 0 0 5px #000;
+				margin-bottom: 10px;
+			}
+			
+			.wrap ul li img {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li style="margin-right:0;"></li>
+			</ul>
+		</div>
+		<script>
+			var oLi = document.getElementsByTagName('li');
+			var xhr = new XMLHttpRequest();
+			var arr;
+			//访问JSON文件
+			xhr.open("GET", "https://jzyzxx.github.io/data.JSON", true);
+			//发送数据
+			xhr.send();
+			//服务器状态判定
+			xhr.onreadystatechange = function(msg) {
+				if(xhr.readyState == 4 && xhr.status == 200) {
+					 arr = JSON.parse(xhr.responseText);//JSON格式转换
+					 onload();
+				}										
+			}
+			var i;
+			//生成图片
+			function create() {
+				var oDiv = document.createElement('div');
+				var oImg = new Image();
+				oImg.src = arr[i % arr.length].src;
+				oDiv.appendChild(oImg);
+				getList(oLi).appendChild(oDiv);
+				
+			};
+			//获取每一个li
+			function getList(obj) {
+				var len = obj.length;
+				var h = Infinity; //无限大
+				var arrN = [];
+				for(var i = 0; i < len; i++) {
+					if(obj[i].offsetHeight < h) {
+						h = obj[i].offsetHeight; 
+						arrN = obj[i];
+					}
+				}
+				return arrN;
+			};
+
+			onload();
+			//加载图片
+			function onload() {
+				if(i < 12) {
+					for(i = 0; i < 12; i++) {
+						create();
+					}
+				} else {
+					var n = i;
+					for(i = 0; i < n; i++) {
+						create();
+					}
+				}
+			};
+			play();
+			//滚动判定
+			function play() {
+				var dH = ''; //文档高度
+				var wH = window.innerHeight; //可视高度
+				var sH = ''; //滚动高度
+				window.onscroll = function() {
+					dH = document.body.scrollHeight;
+					sH = document.body.scrollTop;
+					if(sH + wH + 50 > dH) {
+						onload();
+					}
+				}
+			};
+		</script>
+	</body>
+
+</html>
