@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		* {
+			padding: 0px;
+			margin: 0px;
+		}
+		
+		#big {
+			background-image: url(http://a3.qpic.cn/psb?/V11OOyBa27S1Km/uA.YwFZafqwXdueQIfhEBtCXFAN.Q8zlSyWkIsyX7hM!/b/dB8BAAAAAAAA&bo=rQOAAgAAAAAFBwg!&rf=viewer_4);
+			background-repeat: repeat-x;
+			background-size: 80%;
+			background-attachment: fixed;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			opacity: 0.5;
+		}
+		
+		pre {
+			font-size: 16px;
+			font-weight: bolder;
+			font-family: "微软雅黑";
+		}
+		
+		#box {
+			width: 1400px;
+			height: 100%;
+			margin: auto;
+			padding-top: 50px;
+		}
+		
+		#dh {
+			width: 200px;
+			height: 80%;
+			background: rgba(225, 226, 230, 0.6);
+			position: fixed;
+			float: left;
+			margin-top: 40px;
+			font-size: 25px;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+	</style>
+
+	<body>
+		<div id="big">
+		</div>
+		<div id="dh">
+			<a href="index.html">目录jQuery</a><br />
+			<a href="2.1.html">2.1 jquery选择器</a><br />
+		</div>
+		<div id="box">
+			<h1>jquery选择器</h1><br />
+			<h3>一、jquery选择器之基本分类</h3><br />
+			<h4 style="text-indent: 2em;">1.1、jQuery选择器大致可以分为两类，基本选择器和过滤选择器,总体结构体系如下:</h4><br />
+			<img src="http://a1.qpic.cn/psb?/V11OOyBa27S1Km/..ftRCqyAyTTo45dwgnvFbXq0NqvUhe8Pt1ZjrAJaio!/b/dN4AAAAAAAAA&bo=mwK9AQAAAAADBwc!&rf=viewer_4"/>
+			<h3>二、jquery选择器之基本选择器</h3><br />
+			<h4 style="text-indent: 2em;">2.1 基本选择器又可以分为三种,分别为 </h4><br />
+			<img src="http://a3.qpic.cn/psb?/V11OOyBa27S1Km/Mq.POnyfeg6sKPut8lJugyHY2b4FiIS5HpI7QOd7PHU!/b/dHkBAAAAAAAA&bo=MgLjAAAAAAADAPY!&rf=viewer_4" />
+			<h4 style="text-indent: 2em;">2.1.1 基本选择器之CSS选择器 </h4><br />
+			<img src="http://a3.qpic.cn/psb?/V11OOyBa27S1Km/bdAi1NglUa9H5eUORxnkFswBJA0foWhZO*LIRJhHL.c!/b/dI8AAAAAAAAA&bo=bgIjAQAAAAADAGs!&rf=viewer_4" />
+			<h4 style="text-indent: 2em;">2.1.2 CSS选择器之ID选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于获取某个具有ID属性的元素。
+　　格式： $("id")
+　　例：　　$("#test").val();</h4><br />
+			<h4 style="text-indent: 2em;">2.1.3 CSS选择器之类选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　　　获取某个具有class属性的元素。
+　　格式：$("class")
+　　例： $(".t").css("border","2px solid blue");</h4><br />
+			<h4 style="text-indent: 2em;">2.1.4 CSS选择器之通用选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　　　通用选择器（*）匹配所有元素，多用于结合上下文来搜索。
+　　格式：$("*")
+　　例：$("*").css("color","red");</h4><br />
+			<h4 style="text-indent: 2em;">2.1.5 CSS选择器之群组选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　　　又称多元素选择器，用于选择所有指定的选择器组合的结果。
+　　格式：$("selector,selector2,......,selectorN")
+　　例： $("div,span,p.styleClass").css("border","2px solid blue");</h4><br />
+			<h4 style="text-indent: 2em;">2.2.1 基本选择器之层级选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　在HTML方档中，每个元素总是处在DOM节点树上的某个位置，文档层次结构中元素之间总是存在着某种层级关系。</h4><br />
+			<img src="http://a1.qpic.cn/psb?/V11OOyBa27S1Km/hJ2bdlupb1SeNspnxw.Xpf5TR.eknlBInYshT3BBLjg!/b/dN4AAAAAAAAA&bo=GQLEAAAAAAADAPo!&rf=viewer_4"/>
+			<h4 style="text-indent: 2em;">2.2.2 层级选择器之子元素选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　　　　　用于在给定的父元素下查找其下面的所有子元素。
+　　格式：$("parent>child")
+　　例：$("form > input");
+　　　　匹配form表单中所有的子级input元素。</h4><br />
+			<h4 style="text-indent: 2em;">2.2.3 层级选择器之后代元素选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　　　　　　　用于在给定的祖先元素下匹配所有的后代元素。
+　　格式：$("ancestor descendant")
+　　例：$("form input");
+　　　　查找form元素的后代元素中为input的标记。</h4><br />
+			<h4 style="text-indent: 2em;">2.2.4 层级选择器之紧邻元素选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　　　　　　　　　用于匹配所有紧接在某元素后的第一个元素。
+　　格式：$("prev+next")
+　　例：$("div+span");
+　　　　匹配所有跟在div后的span元素。</h4><br />
+			<h4 style="text-indent: 2em;">2.2.5 层级选择器之相邻元素选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　　　　　　　　用于匹配某元素后面的所有同辈元素。
+　　格式：$("prev~slblings")
+　　例：$("input~p").css("color","red");</h4><br />
+			<h4 style="text-indent: 2em;">2.3.1 基本选择器之表单域选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　表单域指网页中的input,textareaselect,button元素。jQuery 表单域选择器专门用于从文档中选择表单域。</h4><br />
+			<img src="http://a2.qpic.cn/psb?/V11OOyBa27S1Km/Ae*MnA.wrvoah805ZLWcX3*k6XMKKkYNMoh6*MOweAo!/b/dHgBAAAAAAAA&bo=2gLeAQAAAAADACI!&rf=viewer_4"/>
+			<h4 style="text-indent: 2em;">2.3.2 表单选择器之input选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于选择所有input,textareaselect,button元素。
+　　格式：$(":input")</h4><br />		
+			<h4 style="text-indent: 2em;">2.3.3 表单选择器之text选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　     用于选择所有单行文本框(input type="text"/>)。
+　　格式：$(":text")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.4 表单选择器之password选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于选择所有密码框(input type="password"/>)。
+　　格式：$(":password")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.5 表单选择器之radio选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于选择所有单选按钮(input type="radio"/>)。
+　　格式：$(":radio")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.6 表单选择器之input选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于选择所有input,textareaselect,button元素。
+　　格式：$(":input")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.7 表单选择器之chckbox选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于选择所有复选框(input type="chckbox"/>)。
+　　格式：$(":chckbox")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.8 表单选择器之file选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于选择所有文件域(input type="file"/>。
+　　格式：$(":file")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.9 表单选择器之image选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于选择所有图像域(input type="image"/>)。
+　　格式：$(":image")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.10 表单选择器之hidden选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于选择所有不可见元素(input type="hidden"/>)。
+　　格式：$(":hidden")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.11 表单选择器之button选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　用于选择所有按钮(input type="button"/>和button>···/button>)。
+　　格式：$(":button")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.12 表单选择器之submit选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　　　用于选择所有提交按钮(input type="submit"/>和button>···/button>)。
+　　格式：$(":submit")</h4><br />
+			<h4 style="text-indent: 2em;">2.3.13 表单选择器之reset选择器 </h4><br />
+			<h5 style="text-indent: 4em;">　　　　用于选择所有重置按钮(input type="reset"/>)。。
+　　格式：$(":reset")</h4><br />
+		</div>
+	</body>
+
+</html>
