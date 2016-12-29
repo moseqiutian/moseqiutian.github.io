@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			h1 {
+				text-align: center;
+			}
+			
+			table {
+				margin: auto;
+			}
+			
+			.text {
+				height: 40px;
+				font-size: 20px;
+				width: 100%;
+				border: none;
+			}
+			
+			td {
+				height: 40px;
+			}
+			
+			select {
+				height: 40px;
+				width: 100%;
+			}
+			
+			button {
+				display: block;
+				margin: auto;
+				width: 80px;
+				height: 30px;
+			}
+			
+			#tip {
+				margin: auto;
+				text-align: center;
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>禾米科技免费培训申请表</h1>
+		<table border="0" width="900px" cellspacing="1px" cellpadding="2px" bgcolor="black">
+			<tr bgcolor="#fff">
+				<td height="40px" colspan="6">个人信息及联系方式</td>
+			</tr>
+			<tr bgcolor="#fff">
+				<td width="150px" height="40px">*姓名</td>
+				<td width="150px"><input type="text" class="text" id="name" maxlength="7"></td>
+				<td width="150px">*性别</td>
+				<td width="150px">
+					<select id="sex">
+						<option>男</option>
+						<option>女</option>
+					</select>
+				</td>
+				<td width="150px">*出生年月</td>
+				<td width="150px"><input type="date" class="text" id="birthday"></td>
+			</tr>
+			<tr bgcolor="#fff">
+				<td width="150px">*手机号码</td>
+				<td width="150px"><input type="text" class="text" id="mobile"></td>
+				<td width="150px">*政治面貌</td>
+				<td width="150px">
+					<select id="political">
+						<option>团员</option>
+						<option>党员</option>
+						<option>群众</option>
+					</select>
+				</td>
+				<td width="150px">*QQ</td>
+				<td width="150px"><input type="text" id="qq" maxlength="11" class="text" value="" /></td>
+			</tr>
+			<tr bgcolor="#fff">
+				<td width="150px">*学院</td>
+				<td width="150px"><input type="text" id="college" maxlength="15" class="text" value="" /></td>
+				<td width="150px">系</td>
+				<td width="150px"><input type="text" id="faculty" maxlength="10" class="text" value="" /></td>
+				<td width="150px">*专业</td>
+				<td width="150px"><input type="text" id="major" maxlength="10" class="text" value="" /></td>
+			</tr>
+			<tr bgcolor="#fff">
+				<td height="40px" colspan="6">家庭联系方式</td>
+			</tr>
+			<tr bgcolor="#fff">
+				<td width="150px">父亲姓名</td>
+				<td width="150px" colspan="2"><input type="text" class="text" maxlength="7" id="fatherName"></td>
+				<td width="150px">父亲电话</td>
+				<td width="150px" colspan="2"><input type="text" class="text" maxlength="11" id="fatherMobile"></td>
+			</tr>
+			<tr bgcolor="#fff">
+				<td width="150px">母亲姓名</td>
+				<td width="150px" colspan="2"><input type="text" class="text" maxlength="7" id="matherName"></td>
+				<td width="150px">母亲电话</td>
+				<td width="150px" colspan="2"><input type="text" class="text" maxlength="11" id="matherMobile"></td>
+			</tr>
+			<tr bgcolor="#fff">
+				<td width="150px">*家庭住址</td>
+				<td width="150px" colspan="5"><input type="text" maxlength="30" class="text" id="homeAddress"></td>
+			</tr>
+			<tr bgcolor="#fff">
+				<td width="150px">*信息来源</td>
+				<td width="150px" colspan="5"><input type="radio" name="cc" class="source" value="" />1、熟人介绍
+			    <input type="radio" name="cc" class="source">2、杂志
+			    <input type="radio" name="cc" id="" value="" class="source">3、媒体广告
+			    <input type="radio" name="cc" class="source" value="" />4、其他</td>
+			</tr>
+			<tr bgcolor="#fff">
+				<td height="40px" colspan="6">个人能力与自我评价(说明自己所学的专业知识与能力、获奖情况以及自己的优点与兴趣爱好)</td>
+			</tr>
+			<tr bgcolor="#fff" height="80px;">
+				<td width="150px">*专业能力描述</td>
+				<td width="150px" colspan="5"><input type="text" class="text" id="majorMemo"></td>
+			</tr>
+			<tr bgcolor="#fff" height="80px;">
+				<td width="150px">*自我评价描述</td>
+				<td width="150px" colspan="5"><input type="text" class="text" id="selfMemo"></td>
+			</tr>
+		</table>
+		<div id="tip">
+
+		</div>
+		<button>提交</button>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script>
+			$("button").click(function() {
+//				var num = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+//				if(!num.test($("#mobile").val())) {
+//					$("#tip").text("请输入正确的手机号")
+//					return false;
+//				}
+				var _url = "http://www.hemijiaoyu.com/service/addApply";
+				var _data = {};
+				_data.name = $("#name").val();
+				_data.sex = $("#sex").find("option:selected").text();
+				_data.birthday = "199001";
+				_data.mobile = $("#mobile").val();
+				_data.political = $("#political").find("option:selected").text();
+				_data.college = $("#college").val();
+				_data.qq = $("#qq").val();
+				_data.faculty = $("#faculty").val();
+				_data.major = $("#major").val();
+				_data.fatherName = $("#fatherName").val();
+				_data.fatherMobile = $("#fatherMobile").val();
+				_data.matherName = $("#matherName").val();
+				_data.matherMobile = $("#matherMobile").val();
+				_data.homeAddress = $("#homeAddress").val();
+				_data.source = $("input:checked").val();
+				_data.majorMemo = $("#majorMemo").val();
+				_data.selfMemo = $("#selfMemo").val();
+				
+//				_data.name = "陈麟鑫";
+//				_data.sex = "男";
+//				_data.birthday = "199001";
+//				_data.mobile = "13586172035";
+//				_data.political = "党员";
+//				_data.college = "学习";
+//				_data.qq = "286074264";
+//				_data.faculty = "学习";;
+//				_data.major = "学习";
+//				_data.fatherName = "学习";
+//				_data.fatherMobile ="11223123";
+//				_data.matherName = "学习";
+//				_data.matherMobile = "123456";
+//				_data.homeAddress = "学习";
+//				_data.source = "学习";
+//				_data.majorMemo = "学习";
+//				_data.selfMemo = "学习";
+				$.ajax({
+					url:_url,
+					data:_data,
+					dataType:"text",
+					type:"POST",
+					success:function(msg){
+						console.log(msg);
+					},
+					error:function (error) {
+						console.log("提交失败:"+error);
+					}
+				});
+			})
+		</script>
+	</body>
+
+</html>
